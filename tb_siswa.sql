@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2018 at 07:05 AM
+-- Generation Time: Oct 24, 2018 at 12:59 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -19,33 +19,33 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tugas1_kk4`
+-- Database: `db_siswa`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tabel_siswa`
+-- Table structure for table `tb_siswa`
 --
 
-CREATE TABLE `tabel_siswa` (
+CREATE TABLE `tb_siswa` (
   `id` int(12) NOT NULL,
   `username` varchar(24) NOT NULL,
   `password` varchar(24) NOT NULL,
-  `level` varchar(255) NOT NULL,
+  `level` varchar(12) NOT NULL,
   `fullname` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tabel_siswa`
+-- Dumping data for table `tb_siswa`
 --
 
-INSERT INTO `tabel_siswa` (`id`, `username`, `password`, `level`, `fullname`) VALUES
-(20, 'kukuh', 'admin123', 'admin', 'Kukuh Adji Ferdinantara'),
-(21, 'rafdani', 'user123', 'user', 'Muhammad Rafdani Faishal'),
-(22, 'ardhana', 'user123', 'user', 'Muhammad Ardhana Wahyu'),
-(23, 'ilham', 'guest123', 'guest123', 'Muhammad Ilham Saputra'),
-(24, 'risky', 'guest123', 'guest', 'Muhammad Risky Ramadhan');
+INSERT INTO `tb_siswa` (`id`, `username`, `password`, `level`, `fullname`) VALUES
+(20, 'admin', 'admin1234', 'admin', 'Kukuh Adji Ferdinantara'),
+(21, 'rafdani', 'user123', 'user', 'Rafdani Faishal'),
+(22, 'ardhana', 'guest123', 'guest', 'Ardhana Wahyu'),
+(23, 'ilham', 'user123', 'user', 'Ilham Saputra'),
+(24, 'risky', 'guest123', 'guest', 'Risky Ramadhan');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

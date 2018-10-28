@@ -1,41 +1,48 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Menampilkan data dari database ke dalam bentuk tabel</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>
+    table db | Kukuh
+  </title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <?php include "config.php"; ?>
 </head>
 <body>
+  <table>
+    <tr>
+      <th>id</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Level</th>
+      <th>Fullname</th>
+      <th>Action</th>
+    </tr>
 
-  <div class="container">
-  	<h2><center>DATA PESERTA</center></h2>
-  	<table class="tabel" align="center">
-  <tr>
-  	<th>id</th>
-  	<th>username</th>
-  	<th>password</th>
-  	<th>level</th>
-  	<th>fullname</th>
-  </tr>
+    <?php 
+        $qry = mysqli_query($connection,"SELECT * FROM tb_siswa");
+        while($db_siswa = mysqli_fetch_array($qry)){
+    ?>
+
+    <tr>
+      <td><?php echo $db_siswa['id']; ?></td>
+      <td><?php echo $db_siswa['username']; ?></td>
+      <td><?php echo $db_siswa['password']; ?></td>
+      <td><?php echo $db_siswa['level']; ?></td>
+      <td><?php echo $db_siswa['fullname']; ?></td>
+      <td>
+        <div class="btn-update-delete">
+                <a class="green" href="#">Update</a> or
+                <a class="red" href="#">Delete</a>
+        </div>
+      </td>
+      <?php
+      }
+      ?>
+    </tr>
+  </table>
+  <div class="button">
+  <a class="btn"href="insertdata.php">TAMBAH</a>
   </div>
-  <?php
-  // 1. Lakukan include koneksi.php untuk membuat koneksi
-  include('koneksi.php');
-  // 2. Buat perintah SQL untuk menampilkan data
-  $sql_tampil ="SELECT * FROM tabel_siswa";
-  // 3. Jalankan perintah diatas dengan fungsi mysqli_query
-  $peserta=mysqli_query($conn,$sql_tampil);
-  // 4. Lakukan fetch dengan result type MYSQL_ASSOC
-  while($baris_data=mysqli_fetch_array($peserta,MYSQLI_ASSOC)){
-  	echo'
-
-  	</tr>
-  		<td>'.$baris_data['id'].'</td>
-  		<td>'.$baris_data['username'].'</td>
-  		<td>'.$baris_data['password'].'</td>
-  		<td>'.$baris_data['level'].'</td>
-  		<td>'.$baris_data['fullname'].'</td>
-  	</tr>';
-    
-  }
-  ?>
-</body> 
+  
+</body>
 </html>
