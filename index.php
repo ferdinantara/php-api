@@ -31,8 +31,8 @@
       <td><?php echo $db_siswa['fullname']; ?></td>
       <td>
         <div class="btn-update-delete">
-                <a class="green" href="#">Update</a> or
-                <a class="red" href="#">Delete</a>
+                <a class="green" href='editdata.php?id=<?php echo $db_siswa['id']; ?>'>Update</a> or
+                <a class="red" href='deletedata.php?id=<?php echo $db_siswa['id']; ?>'>Delete</a>
         </div>
       </td>
       <?php
